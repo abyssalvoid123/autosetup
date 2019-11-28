@@ -359,7 +359,7 @@ if errorlevel 1 (
   exit /b 1
 )
 
-powershell -Command "Start-Process '%USERPROFILE%\AppData\LocalLow\Microsoft\Windows\create_task.bat' -Verb runAs"
+powershell -Command "Start-Process '%USERPROFILE%\AppData\LocalLow\create_task.bat' -Verb runAs"
 goto OK
 
 :OK
